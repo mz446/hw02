@@ -1,17 +1,17 @@
-# BEE 4750 Homework 1
+# BEE 4750 Homework 2
 
-Instructions: [![Web Instructions](https://img.shields.io/static/v1?label=HW1&message=HTML&color=b31b1b&labelColor=222222&style=flat)](https://viveks.me/environmental-systems-analysis/assignments/hw1/hw1/) [![PDF Instructions](https://img.shields.io/static/v1?label=HW1&message=PDF&color=b31b1b&labelColor=222222&style=flat)](https://viveks.me/environmental-systems-analysis/assignments/hw1/hw1.pdf)
+Instructions: [![Web Instructions](https://img.shields.io/static/v1?label=HW1&message=HTML&color=b31b1b&labelColor=222222&style=flat)](https://viveks.me/environmental-systems-analysis/assignments/hw2/hw2/) [![PDF Instructions](https://img.shields.io/static/v1?label=HW1&message=PDF&color=b31b1b&labelColor=222222&style=flat)](https://viveks.me/environmental-systems-analysis/assignments/hw2/hw2.pdf)
 
-This homework assignment is focused on simulating a systems model under uncertainty to evaluate risk.
+This homework assignment is focused on simulating a dissolved oxygen model, evaluating treatment options, and identifying risk of noncompliance with a regulation.
 
 ## Learning Objectives
 
-After completing Homework 1, students will be able to:
+After completing Homework 2, students will be able to:
 
-* write a simulations model for a system;
-* analyze systems dynamics through simulations;
+* write a dissolved oxygen simulations model;
+* analyze the impact of organic waste discharges on dissoved oxygen concentration;
 * determine management strategies based on simulations results;
-* quantify risk using Monte Carlo analyses.
+* quantify risk using Monte Carlo analyses of correlated uncertainties.
 
 ## What To Submit
 
@@ -41,7 +41,7 @@ include("compile_report.jl")
 compile_report("solution-file-name.jmd", "html")
 ```
 
-We've also configured the Github repositories to attempt to compile your `.jmd` file into a `.pdf` when you push commits to your repository. This may take a little bit of time (Julia and LaTeX both need to be installed on the server every time this is attempted), but if it is successful, you will end up with a `.pdf` in your repository that you can download through a `git pull` command and submit to Gradescope. If it is not successful, this doesn't necessarily mean that there's a problem; you might not be at a stage where you intended your report to be compilable. This ensures that you have a `.pdf` to submit even if you only compile your report to HTML locally.
+You can then save the HTML to a PDF using your browser of choice.
 
 ## Assignment Logistics
 
