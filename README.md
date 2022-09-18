@@ -1,6 +1,6 @@
 # BEE 4750 Homework 2
 
-Instructions: [![Web Instructions](https://img.shields.io/static/v1?label=HW1&message=HTML&color=b31b1b&labelColor=222222&style=flat)](https://viveks.me/environmental-systems-analysis/assignments/hw2/hw2/) [![PDF Instructions](https://img.shields.io/static/v1?label=HW1&message=PDF&color=b31b1b&labelColor=222222&style=flat)](https://viveks.me/environmental-systems-analysis/assignments/hw2/hw2.pdf)
+Instructions: [![Web Instructions](https://img.shields.io/static/v1?label=HW2&message=HTML&color=b31b1b&labelColor=222222&style=flat)](https://viveks.me/environmental-systems-analysis/assignments/hw2/hw2/) [![PDF Instructions](https://img.shields.io/static/v1?label=HW2&message=PDF&color=b31b1b&labelColor=222222&style=flat)](https://viveks.me/environmental-systems-analysis/assignments/hw2/hw2.pdf)
 
 This homework assignment is focused on simulating a dissolved oxygen model, evaluating treatment options, and identifying risk of noncompliance with a regulation.
 
