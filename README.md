@@ -33,6 +33,7 @@ This notebook was written using Julia 1.9.2, and depends on the following packag
 - `Plots.jl`
 - `LaTeXStrings.jl`
 - `Distributions.jl`
+- `PDMats.jl`
 
 ## Prerequisites
 

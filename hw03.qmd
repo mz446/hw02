@@ -58,6 +58,7 @@ Pkg.instantiate()
 using Plots
 using LaTeXStrings
 using Distributions
+using PDMats
 ```
 
 ## Problems (Total: 100 Points)
