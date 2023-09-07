@@ -7,6 +7,8 @@ on:
     paths-ignore:
       - '**/README.md'
       - '**.ipynb'
+      - '**.html'
+      - '**.pdf'
 
 name: Quarto Publish
 
@@ -47,7 +49,7 @@ jobs:
         uses: quarto-dev/quarto-actions/render@v2
         with:
           to: ipynb
-          path: hw03.qmd
+          path: hw02.qmd
 
       - name: Commit and Push
         uses: stefanzweifel/git-auto-commit-action@v4
