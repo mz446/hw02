@@ -1,10 +1,10 @@
-# Homework 3: Dissolved Oxygen
+# Homework 2: Dissolved Oxygen
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is the repository for Homework 3 for [BEE 4750](https://viveks.me/environmental-systems-analysis), taught at [Cornell University](https://cornell.edu) in Fall 2023 by [Vivek Srikrishnan](https://viveks.me).
+This is the repository for Homework 2 for [BEE 4750](https://viveks.me/environmental-systems-analysis), taught at [Cornell University](https://cornell.edu) in Fall 2023 by [Vivek Srikrishnan](https://viveks.me).
 
-If enrolled in the class, a PDF of the completed notebook, **with all cells evaluated**, should be submitted to Gradescope *no later* than Friday, October 6, 2023, at 9:00pm. 10% will be deducted for each day that the notebook is late.
+If enrolled in the class, a PDF of the completed notebook, **with all cells evaluated**, should be submitted to Gradescope *no later* than Friday, September 22, 2023, at 9:00pm. 10% will be deducted for each day that the notebook is late.
 
 ## Learning Objectives
 
@@ -12,16 +12,15 @@ After completing this lab, students will be able to:
 
 - write and use a model to simulate nonlinear systems dynamics;
 - analyze the impact of multiple waste discharges on regulatory compliance;
-- determine management strategies based on simulation results;
-- quantify risk using Monte Carlo analyses.
+- determine management strategies based on simulation results.
 
 ## Repository Overview
 
 The repository consists of the following files:
 
-- `hw03.ipynb`: Jupyter Notebook for the homework assignment. Students should create code or Markdown blocks as necessary to answer questions. **This is the only file you should need to edit.**
+- `hw02.ipynb`: Jupyter Notebook for the homework assignment. Students should create code or Markdown blocks as necessary to answer questions. **This is the only file you should need to edit.**
 - `Project.toml`, `Manifest.toml`: Julia environment files. These should just work, but feel free to add other packages as needed using the `Pkg` package manager. **This is the only other file that you might end up making changes to, though you should do this using `Pkg`, not directly.**
-- `hw03.qmd`: Source file for Jupyter notebook generation. You shouldn't need to or want to touch this; everything is in the `.ipynb` file.
+- `hw02.qmd`: Source file for Jupyter notebook generation. You shouldn't need to or want to touch this; everything is in the `.ipynb` file.
 - `LICENSE`: This material is licensed using the MIT license. You can ignore this for working on the problem set.
 - `README.md`: This file. You shouldn't need to touch this.
 - `.gitignore`: This tells `git` what files to ignore. You shouldn't need to touch this.
@@ -44,7 +43,7 @@ This notebook was written using Julia 1.9.2, and depends on the following packag
     cd BEE4750/
     mkdir hw
     cd hw/
-    git clone https://github.com/BEE4750/hw03.git
+    git clone https://github.com/BEE4750/hw02.git
     ```
 
 ## Opening The Notebook
@@ -57,7 +56,7 @@ This notebook was written using Julia 1.9.2, and depends on the following packag
   - If you're using a different IDE, Google how to make sure that it is set up to run a Julia notebook.
   - If you want to use `IJulia.jl`, open a Julia prompt. You can do this by:
     - Using the `Julia-1.9` or equivalent graphical program, type `cd("BEE4750/hw")` or whatever path points to your lab notebook folder;
-    - Navigating to your `BEE4750/hw/hw03` folder and typing `julia` to open the prompt.Then:
+    - Navigating to your `BEE4750/hw/hw02` folder and typing `julia` to open the prompt.Then:
     
       ```julia
       import Pkg
@@ -65,4 +64,4 @@ This notebook was written using Julia 1.9.2, and depends on the following packag
       using IJulia
       notebook()
       ```
-      and you can navigate to and open `hw03.ipynb`.
+      and you can navigate to and open `hw02.ipynb`.
