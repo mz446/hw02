@@ -111,7 +111,7 @@ If both waste streams are treated equally, what is the minimum level of treatmen
 
 ::: {.cell .markdown}
 
-#### Problem 6 (5 points)
+### Problem 6 (5 points)
 
 Suppose you are responsible for designing a waste treatment plan for discharges into the river, with a regulatory mandate to keep the dissolved oxygen concentration above 4 mg/L. Discuss whether you'd opt to treat waste stream 2 alone or both waste streams equally. What other information might you need to make a conclusion, if any?
 
