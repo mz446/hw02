@@ -1,18 +1,17 @@
-# Homework 2: Dissolved Oxygen
+# Homework 2: Simulation Models
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is the repository for Homework 2 for [BEE 4750](https://viveks.me/environmental-systems-analysis), taught at [Cornell University](https://cornell.edu) in Fall 2023 by [Vivek Srikrishnan](https://viveks.me).
+This is the repository for Homework 2 for [BEE 4750](https://viveks.me/environmental-systems-analysis), taught at [Cornell University](https://cornell.edu) in Fall 2024 by [Vivek Srikrishnan](https://viveks.me).
 
-If enrolled in the class, a PDF of the completed notebook, **with all cells evaluated**, should be submitted to Gradescope *no later* than Friday, September 22, 2023, at 9:00pm. 10% will be deducted for each day that the notebook is late.
+If enrolled in the class, a PDF of the solution should be submitted to Gradescope no later than Thursday, September 19, 2024, at 9:00pm. Submitting up to 24 hours late will result in a 50% penalty.
 
 ## Learning Objectives
 
-After completing this lab, students will be able to:
+After completing this assignment, students will be able to:
 
-- write and use a model to simulate nonlinear systems dynamics;
-- analyze the impact of multiple waste discharges on regulatory compliance;
-- determine management strategies based on simulation results.
+- derive models based on mass and energy balances;
+- simulate the state of environmental systems using models.
 
 ## Repository Overview
 
@@ -28,15 +27,15 @@ The repository consists of the following files:
 
 ## Dependencies
 
-This notebook was written using Julia 1.9.2, and depends on the following packages:
+This notebook was written using Julia 1.10.3, and depends on the following packages:
 - `Plots.jl`
 - `LaTeXStrings.jl`
-- `Distributions.jl`
-- `PDMats.jl`
+- `CSV.jl`
+- `DataFrames.jl`
 
 ## Prerequisites
 
-1. [Install Julia](https://julialang.org/downloads/) before beginning this lab. This notebook was developed with version 1.9.2, but any 1.9.x should work (there could be some issues with other versions, depending on what's changed).
+1. [Install Julia](https://julialang.org/downloads/) before beginning this lab. This notebook was developed with version 1.10.3, but any 1.10.x should work (there could be some issues with other versions, depending on what's changed).
 2. If necessary, [install git](https://happygitwithr.com/install-git.html) and [create a GitHub account](https://github.com). 
 3. [Clone the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository). I recommend doing this in a dedicated `BEE4750/` folder, which can also house homework assignment repositories and lecture notes. You can clone directly into the `BEE4750/` folder.   For Windows (or from another graphical interface), just create a `BEE4750` folder, then a `hw` folder inside of that, then clone into that folder. Or to clone into a `BEE4750/hw` folder, from a command prompt:
     ```bash
@@ -52,10 +51,10 @@ This notebook was written using Julia 1.9.2, and depends on the following packag
   - Install an integrated development environment, or IDE (I recommend [VS Code](https://code.visualstudio.com/) with the [Julia extension](https://marketplace.visualstudio.com/items?itemName=julialang.language-julia)). 
   - Use the [`IJulia.jl` package](https://github.com/JuliaLang/IJulia.jl). I've included this in the project environment (discussed below), so no further steps are needed.  
 2. Opening the notebook will depend on what you decided to do in the previous step. 
-  - If you installed VS Code, you should be able to just open `hw03.ipynb` and everything should just work. 
+  - If you installed VS Code, you should be able to just open `hw02.ipynb` and everything should just work. 
   - If you're using a different IDE, Google how to make sure that it is set up to run a Julia notebook.
   - If you want to use `IJulia.jl`, open a Julia prompt. You can do this by:
-    - Using the `Julia-1.9` or equivalent graphical program, type `cd("BEE4750/hw")` or whatever path points to your lab notebook folder;
+    - Using the `Julia-1.10` or equivalent graphical program, type `cd("BEE4750/hw")` or whatever path points to your lab notebook folder;
     - Navigating to your `BEE4750/hw/hw02` folder and typing `julia` to open the prompt.Then:
     
       ```julia
