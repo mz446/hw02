@@ -24,7 +24,7 @@ format-links: [ipynb]
 ::: {.callout-important icon=false}
 ### Due Date
 
-Thursday, 09/19/23, 9:00pm
+Thursday, 09/19/24, 9:00pm
 :::
 
 ::: {.content-visible when-format="html"}
@@ -45,6 +45,7 @@ Otherwise, you can [find the Github repository here]({{< var github_org.repo >}}
 
 * Problem 1 asks you to derive a model for water quality in a river system and use this model to check for regulatory compliance.
 * Problem 2 asks you to discretize a simple climate model and use it to simulate global mean temperatures under a future emissions scenario.
+* Problem 3 (5750 only) asks you to modify the lake eutrophication example from Lecture 04 to account for atmospheric deposition.
 
 ### Load Environment
 
@@ -64,16 +65,16 @@ using CSV
 using DataFrames
 ```
 
-## Problems (Total: 50 Points)
+## Problems (Total: 50/60 Points)
 
 ::: {.cell .markdown}
 
 ### Problem 1 (25 points)
 
-A river which flows at 10 km/d is receiving discharges of wastewater contaminated with CRUD from two sources which are 15 km apart, as shown in the Figure below.  CRUD decays in the river at a rate of 0.36 d$^{-1}$. 
+A river which flows at 10 km/d is receiving discharges of wastewater contaminated with CRUD from two sources which are 15 km apart, as shown in the Figure below.  CRUD decays in the river at a rate of 0.36 $\mathrm{d}^{-1}$. 
 :::
 
-![Schematic of the river system in Problem 1](figures/river_diagram.svg)
+![Schematic of the river system in Problem 1](figures/river_diagram.svg)\
 
 ::: {.cell .markdown}
 **In this problem**:
@@ -83,23 +84,25 @@ A river which flows at 10 km/d is receiving discharges of wastewater contaminate
 :::
 
 ::: {.callout-tip}
-Use your model to simulate the CRUD concentrations downriver to address compliance.
+Use your model to simulate the CRUD concentrations downriver.
 :::
 
 ::: {.cell .markdown}
 ### Problem 2 (25 points)
 
-The simplest climate model involves capturing changes to the Earth's energy budget (it is commonly called the *energy balance model*, or EBM). These changes are also called *radiative forcings* (RF), and can result from several causes, including greenhouse gas emissions, volcanic eruptions, and changes to the solar cycle. The EBM treats the Earth as a 0-dimensional sphere covered with water, with global temperature changes resulting from imbalances in the average (over the entire surface area) heat flux.
+The simplest climate model involves capturing changes to the Earth's energy budget (it is commonly called the *energy balance model*, or EBM). These changes are also called *radiative forcings* (RF), and can result from several causes, including greenhouse gas emissions, volcanic eruptions, and changes to the solar cycle. The EBM treats the Earth as a 0-dimensional sphere covered with water, which absorbs heat in response to radiative forcings. Chanwith global temperature changes resulting from imbalances in the average (over the entire surface area) heat flux. 
 
 The EBM equations are:
 
+$$
 \begin{align*}
-\overbrace{\frac{dH}{dt}}^{\text{change in heat}} &= \overbrace{F}^{\text{RF}} - \overbrace{\lambda T}^{\substack{\text{change in} \\ \text{temperature}}} \\
+\overbrace{\frac{dH}{dt}}^{\text{change in heat}} &= \overbrace{F}^{\substack{\text{radiative} \\ \text{forcing}}} - \overbrace{\lambda T}^{\substack{\text{change in} \\ \text{temperature}}} \\
 \underbrace{C}_{\substack{\text{ocean heat} \\ \text{capacity}}} \frac{dT}{dt} &= F - \lambda T \\
 c\underbrace{d}_{\substack{\text{ocean} \\ \text{mixing depth}}} \frac{dT}{dt} &= F - \lambda T,
 \end{align*}
+$$
 
-where $c = 4.184\times 10^6 \\ \mathrm{J/K/m}^2$ is the specific heat of water per area, $d$ is the depth of the ocean mixed layer (we'll assume $d = 86 \mathrm{m}$), and $\lambda$ is the **climate feedback factor** and controls how much the Earth warms in response to increased radiative forcing. The total radiative forcing $F = F_\text{non-aerosol} + \alpha F_\text{aerosol}$, where $\alpha$ is an uncertain scaling factor reflecting aerosol-cloud feedbacks (we'll assume $\alpha = 0.8$). 
+where $c = 4.184\times 10^6 \mathrm{J/K/m}^2$ is the specific heat of water per area, $d$ is the depth of the ocean mixed layer (we'll assume $d = 86 \mathrm{m}$), and $\lambda$ is the **climate feedback factor** and controls how much the Earth warms in response to increased radiative forcing (assume $\lambda = 2.1$). The total radiative forcing $F = F_\text{non-aerosol} + \alpha F_\text{aerosol}$, where $\alpha$ is an uncertain scaling factor reflecting aerosol-cloud feedbacks (we'll assume $\alpha = 0.8$). 
 
 The code below loads historical and projected radiative forcings (under the SSP5-8.5 future emissions scenario, which is the most extreme of the scenarios used to project climate change impacts) from `data/ERF_ssp585_1750-2500.csv` into a `DataFrame` object and calculates the non-aerosol and aerosol components of those forcings.
 
@@ -144,7 +147,17 @@ plot!(p_forcing, t, forcing_non_aerosol, label="Non-Aerosol Forcing", color=:red
 **In this problem**:
 
 * Discretize the EBM to produce a simulation model of global mean temperatures $T$ over time as a result of total radiative forcings $F$.
-* Simulate and plot global mean temperatures from your model using the historical and SSP5-8.5 radiative forcing data.
+* Simulate global mean temperature anomalies (in $^\circ C$ relative to 1750) from your model using the historical and SSP5-8.5 radiative forcing data. Use an annual time step for the simulation (in seconds: $\Delta t = 31,558,152 \mathrm{s}$). You can assume $T(0) = 0^\circ C$.
+* Plot your simulated global mean temperature anomalies from 1750 through 2100.
+:::
+
+::: {.cell .markdown}
+### Problem 3 (10 points)
+
+**This problem is only required for students in BEE 5750**.
+
+Consider the lake eutrophication example from [Lecture 04](https://viveks.me/environmental-systems-analysis/slides/lecture04-eutrophication-modeling.html#/title-slide). Suppose that phosphorous is also atmospherically deposited onto the lake surface at a rate of $2.4 \times 10^{-5} \mathrm{kg/(yr} \cdot \mathrm{m)}^2$, which is then instantly mixed into the lake. Derive a model for the lake phosphorous concentration and find the maximum allowable point source phosphorous loading if the goal is to keep lake concentrations below 0.02 mg/L.
+
 :::
 
 ::: {.cell .markdown}
