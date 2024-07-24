@@ -100,13 +100,11 @@ The simplest climate model involves capturing changes to the Earth's energy budg
 
 The EBM equations are:
 
-$$
 \begin{align*}
 \overbrace{\frac{dH}{dt}}^{\text{change in heat}} &= \overbrace{F}^{\substack{\text{radiative} \\ \text{forcing}}} - \overbrace{\lambda T}^{\substack{\text{change in} \\ \text{temperature}}} \\
 \underbrace{C}_{\substack{\text{ocean heat} \\ \text{capacity}}} \frac{dT}{dt} &= F - \lambda T \\
 c\underbrace{d}_{\substack{\text{ocean} \\ \text{mixing depth}}} \frac{dT}{dt} &= F - \lambda T,
 \end{align*}
-$$
 
 where $c = 4.184\times 10^6 \mathrm{J/K/m}^2$ is the specific heat of water per area, $d$ is the depth of the ocean mixed layer (we'll assume $d = 86 \mathrm{m}$), and $\lambda$ is the **climate feedback factor** and controls how much the Earth warms in response to increased radiative forcing (assume $\lambda = 2.1$). The total radiative forcing $F = F_\text{non-aerosol} + \alpha F_\text{aerosol}$, where $\alpha$ is an uncertain scaling factor reflecting aerosol-cloud feedbacks (we'll assume $\alpha = 0.8$). 
 
