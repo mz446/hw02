@@ -1,5 +1,5 @@
 ---
-title: "BEE 4750 Homework 2: Simulation Models"
+title: "BEE 4750 Homework 2: Systems Modeling and Simulation"
 date: last-modified
 format:
     html:        
@@ -12,7 +12,7 @@ format:
 execute: 
     echo: true
 engine: julia
-format-links: [ipynb]
+format-links: [pdf, ipynb]
 ---
 
 ::: {.content-visible when-format="ipynb"}
@@ -74,17 +74,13 @@ using DataFrames
 A river which flows at 10 km/d is receiving discharges of wastewater contaminated with CRUD from two sources which are 15 km apart, as shown in the Figure below.  CRUD decays in the river at a rate of 0.36 $\mathrm{d}^{-1}$. 
 :::
 
-![Schematic of the river system in Problem 1](figures/river_diagram.svg)\
+![Schematic of the river system in Problem 1](figures/river_diagram.svg)
 
 ::: {.cell .markdown}
 **In this problem**:
 
-* Assuming steady-state conditions, derive a model for the concentration of CRUD downriver. 
+* Assuming steady-state conditions, derive a model for the concentration of CRUD downriver by solving the appropriate differential equation(s) analytically.
 * Determine if the system in compliance with a regulatory limit of 2.5 kg/(1000 m$^3$).
-:::
-
-::: {.callout-tip}
-Use your model to simulate the CRUD concentrations downriver.
 :::
 
 ::: {.cell .markdown}
