@@ -94,15 +94,16 @@ A river which flows at 10 km/d is receiving discharges of wastewater contaminate
 Your solution will need to be in terms of distance downriver.
 :::
 
-::: {.cell .markdown}
 ### Problem 2 (25 points)
 
 Consider the shallow lake model from class:
 
-\begin{gather*}
-X_{t+1} = X_t + a_t + y_t + \frac{X_t^q}{1 + X_t^q} - bX_t, \\
-y_t \sim \text{LogNormal}(\mu, \sigma^2),
-\end{gather*}
+$$
+\begin{align*}
+X_{t+1} &= X_t + a_t + y_t + \frac{X_t^q}{1 + X_t^q} - bX_t, \\
+y_t &\sim \text{LogNormal}(\mu, \sigma^2),
+\end{align*}
+$$
 
 where:
 
@@ -112,7 +113,6 @@ where:
 * $b$ is the linear rate of P outflow;
 * $q$ is a parameter influencing the rate of P recycling from the sediment.
 
-:::
 
 **In this problem**:
 
