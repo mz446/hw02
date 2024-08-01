@@ -69,6 +69,7 @@ using Plots
 using LaTeXStrings
 using CSV
 using DataFrames
+using Roots
 ```
 
 ## Problems (Total: 50/60 Points)
@@ -96,64 +97,35 @@ Your solution will need to be in terms of distance downriver.
 ::: {.cell .markdown}
 ### Problem 2 (25 points)
 
-The simplest climate model involves capturing changes to the Earth's energy budget (it is commonly called the *energy balance model*, or EBM). These changes are also called *radiative forcings* (RF), and can result from several causes, including greenhouse gas emissions, volcanic eruptions, and changes to the solar cycle. The EBM treats the Earth as a 0-dimensional sphere covered with water, which absorbs heat in response to radiative forcings. Chanwith global temperature changes resulting from imbalances in the average (over the entire surface area) heat flux. 
+Consider the shallow lake model from class:
 
-The EBM equations are:
+\begin{gather*}
+X_{t+1} = X_t + a_t + y_t + \frac{X_t^q}{1 + X_t^q} - bX_t, \\
+y_t \sim \text{LogNormal}(\mu, \sigma^2),
+\end{gather*}
 
-\begin{align*}
-\overbrace{\frac{dH}{dt}}^{\text{change in heat}} &= \overbrace{F}^{\substack{\text{radiative} \\ \text{forcing}}} - \overbrace{\lambda T}^{\substack{\text{change in} \\ \text{temperature}}} \\
-\underbrace{C}_{\substack{\text{ocean heat} \\ \text{capacity}}} \frac{dT}{dt} &= F - \lambda T \\
-c\underbrace{d}_{\substack{\text{ocean} \\ \text{mixing depth}}} \frac{dT}{dt} &= F - \lambda T,
-\end{align*}
+where:
 
-where $c = 4.184\times 10^6 \mathrm{J/K/m}^2$ is the specific heat of water per area, $d$ is the depth of the ocean mixed layer (we'll assume $d = 86 \mathrm{m}$), and $\lambda$ is the **climate feedback factor** and controls how much the Earth warms in response to increased radiative forcing (assume $\lambda = 2.1$). The total radiative forcing $F = F_\text{non-aerosol} + \alpha F_\text{aerosol}$, where $\alpha$ is an uncertain scaling factor reflecting aerosol-cloud feedbacks (we'll assume $\alpha = 0.8$). 
-
-The code below loads historical and projected radiative forcings (under the SSP5-8.5 future emissions scenario, which is the most extreme of the scenarios used to project climate change impacts) from `data/ERF_ssp585_1750-2500.csv` into a `DataFrame` object and calculates the non-aerosol and aerosol components of those forcings.
+* $X_t$ is the lake phosphorous (P) concentration at time $t$;
+* $a_t$ is the point-source P release at time $t$;
+* $y_t$ is the non-point-source P release at time $t$, which is treated as random from a LogNormal distribution with mean $\mu$ and standard deviation $\sigma$;
+* $b$ is the linear rate of P outflow;
+* $q$ is a parameter influencing the rate of P recycling from the sediment.
 
 :::
-
-::: {.callout-tip}
-Look closely at and experiment with the code below: `DataFrames` are a common Julia datatype for tabular data, and you may work more with them later in the semester or beyond! They are broadly similar to `DataFrames` from `pandas` in Python.
-:::
-
-```{julia}
-#| label: read-rf
-#| echo: true
-#| output: false
-
-# Dataset from https://zenodo.org/record/3973015
-# The CSV is read into a DataFrame object, and we specify that it is comma delimited
-forcings_all = CSV.read("data/ERF_ssp585_1750-2500.csv", DataFrame, delim=",")
-
-# Separate out the individual components
-# Get total aerosol forcings
-forcing_aerosol_rad = forcings_all[!,"aerosol-radiation_interactions"]
-forcing_aerosol_cloud = forcings_all[!,"aerosol-cloud_interactions"]
-forcing_aerosol = forcing_aerosol_rad + forcing_aerosol_cloud
-# Calculate non-aerosol forcings from the total.
-forcing_total = forcings_all[!,"total"]
-forcing_non_aerosol = forcing_total - forcing_aerosol
-```
-
-We can plot the aerosol and non-aerosol forcings below.
-
-```{julia}
-#| echo: true
-
-t = Int64.(forcings_all[!,"year"]) # Ensure that years are interpreted as integers
-p_forcing = plot(; xlabel="Year", ylabel="Radiative Forcing (W/m²)")
-plot!(p_forcing, t, forcing_aerosol, label="Aerosol Forcing", color=:blue, linewidth=2)
-plot!(p_forcing, t, forcing_non_aerosol, label="Non-Aerosol Forcing", color=:red, linewidth=2)
-```
-
-::: {.cell .markdown}
 
 **In this problem**:
 
-* Discretize the EBM to produce a simulation model of global mean temperatures $T$ over time as a result of total radiative forcings $F$.
-* Simulate global mean temperature anomalies (in $^\circ C$ relative to 1750) from your model using the historical and SSP5-8.5 radiative forcing data. Use an annual time step for the simulation (in seconds: $\Delta t = 31,558,152 \mathrm{s}$). You can assume $T(0) = 0^\circ C$.
-* Plot your simulated global mean temperature anomalies from 1750 through 2100.
-:::
+* Make an initial conditions plot for the model dynamics for $b=0.4$, $q=2.5$, $y_t=0$, and $a_t=0$. What are the equilibria? What can you say about the resilience of the system?
+  
+  ::: {.callout-tip}
+  ## Finding equilibria
+  
+  Use [`Roots.jl`](https://juliamath.github.io/Roots.jl/stable/) to find the equilibria by solving for values where $X_{t+1} = X_t$. For example, if you have functions `X_outflow(X,b)` and `X_recycling(X,q)`, you could create a function `X_delta(x, a) = a + X_recycling(x) - X_outflow(x)` and call `Roots.find_zero(x -> X_delta(x, a), x₀)`, where `x₀` is an initial value for the search (you might need to use your plot to find values for `x₀` near each of the "true" equilibria).
+
+  :::
+
+* Repeat the analysis with $a_t=0.05$ for all $t$. What are the new equilibria? How have the dynamics and resilience of the system changed?
 
 ::: {.cell .markdown}
 ### Problem 3 (10 points)
