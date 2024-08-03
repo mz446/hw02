@@ -116,7 +116,7 @@ where:
 
 **In this problem**:
 
-* Make an initial conditions plot for the model dynamics for $b=0.4$, $q=2.5$, $y_t=0$, and $a_t=0$. What are the equilibria? What can you say about the resilience of the system?
+* Make an initial conditions plot for the model dynamics for $b=0.4$, $q=2.5$, $y_t=0$, and $a_t=0$ for $t=0, \ldots, 30$. What are the equilibria? What can you say about the resilience of the system?
   
   ::: {.callout-tip}
   ## Finding equilibria
