@@ -99,10 +99,10 @@ Your solution will need to be in terms of distance downriver.
 Consider the shallow lake model from class:
 
 $$
-\begin{align*}
+\begin{aligned}
 X_{t+1} &= X_t + a_t + y_t + \frac{X_t^q}{1 + X_t^q} - bX_t, \\
 y_t &\sim \text{LogNormal}(\mu, \sigma^2),
-\end{align*}
+\end{aligned}
 $$
 
 where:
