@@ -132,7 +132,7 @@ where:
 
 **This problem is only required for students in BEE 5750**.
 
-Consider the lake eutrophication example from [Lecture 04](https://viveks.me/environmental-systems-analysis/slides/lecture04-eutrophication-modeling.html#/title-slide). Suppose that phosphorous is also atmospherically deposited onto the lake surface at a rate of $1.6 \times 10^{-4} \mathrm{kg/(yr} \cdot \mathrm{m}^2)$, which is then instantly mixed into the lake. Derive a model for the lake phosphorous concentration and find the maximum allowable point source phosphorous loading if the goal is to keep lake concentrations below 0.02 mg/L.
+Consider the lake eutrophication example from [Lecture 04](https://viveks.me/environmental-systems-analysis/slides/lecture03-1-eutrophication-modeling.html#/title-slide). Suppose that phosphorous is also atmospherically deposited onto the lake surface at a rate of $1.6 \times 10^{-4} \mathrm{kg/(yr} \cdot \mathrm{m}^2)$, which is then instantly mixed into the lake. Derive a model for the lake phosphorous concentration and find the maximum allowable point source phosphorous loading if the goal is to keep lake concentrations below 0.02 mg/L.
 
 :::
 
