@@ -50,7 +50,7 @@ Otherwise, you can [find the Github repository here]({{< var github_org.repo >}}
 ### Instructions
 
 * Problem 1 asks you to derive a model for water quality in a river system and use this model to check for regulatory compliance.
-* Problem 2 asks you to discretize a simple climate model and use it to simulate global mean temperatures under a future emissions scenario.
+* Problem 2 asks you to explore the dynamics and equilibrium stability of the shallow lake model under a particular set of parameter values.
 * Problem 3 (5750 only) asks you to modify the lake eutrophication example from Lecture 04 to account for atmospheric deposition.
 
 ### Load Environment
@@ -91,7 +91,7 @@ A river which flows at 10 km/d is receiving discharges of wastewater contaminate
 :::
 
 ::: {.callout-tip}
-Your solution will need to be in terms of distance downriver.
+Formulate your model in terms of distance downriver, rather than leaving it in terms of time from discharge.
 :::
 
 ### Problem 2 (25 points)
@@ -116,7 +116,7 @@ where:
 
 **In this problem**:
 
-* Make an initial conditions plot for the model dynamics for $b=0.4$, $q=2.5$, $y_t=0$, and $a_t=0$ for $t=0, \ldots, 30$. What are the equilibria? What can you say about the resilience of the system?
+* Make an initial conditions plot for the model dynamics for $b=0.5$, $q=1.5$, $y_t=0$, and $a_t=0$ for $t=0, \ldots, 30$. What are the equilibria? What can you say about the resilience of the system?
   
   ::: {.callout-tip}
   ## Finding equilibria
@@ -125,7 +125,7 @@ where:
 
   :::
 
-* Repeat the analysis with $a_t=0.05$ for all $t$. What are the new equilibria? How have the dynamics and resilience of the system changed?
+* Repeat the analysis with $a_t=0.02$ for all $t$. What are the new equilibria? How have the dynamics and resilience of the system changed?
 
 ::: {.cell .markdown}
 ### Problem 3 (10 points)
